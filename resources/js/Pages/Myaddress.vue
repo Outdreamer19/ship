@@ -70,7 +70,7 @@ export default {
                                         {{ $page.props.auth.user.name }}
                                     </p>
                                     <p class="text-lg sm:text-lg lg:text-xl  text-gray-800 dark:text-gray-200">
-                                        1910 S State Road
+                                        1910 South State Road 7
                                     </p>
                                     <p class="text-lg sm:text-lg lg:text-xl  text-gray-800 dark:text-gray-200">
                                         <span class="bg-pink-50 px-2 rounded-md"> Suite #9 BS {{

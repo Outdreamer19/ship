@@ -3,12 +3,14 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Filament\Panel;
+use Illuminate\Notifications\Notifiable;
+use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
     use HasFactory, Notifiable;
 
@@ -45,6 +47,14 @@ class User extends Authenticatable
     public function packages(): HasMany
     {
         return $this->hasMany(Package::class);
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return true;
+       // return $this->email == 'shane@example.com';
+       /// return $this->id = 2;
+       // return str_ends_with($this->email, '@brightsmile.com') && $this->hasVerifiedEmail();
     }
 
     protected static function booted()

@@ -39,8 +39,8 @@ const submit = () => {
                     <div class="g-0 lg:flex lg:flex-wrap">
 
                         <!-- Left column container-->
-                        <div class="px-4 md:px-0 lg:w-6/12">
-                            <a href="/" class="relative top-10 left-10">
+                        <div class="pb-6 pt-3 px-4 md:px-0 lg:w-6/12">
+                            <a href="/" class="lg:relative  lg:top-10 lg:left-10">
                                 <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2"
                                     fill="none" stroke-linecap="round" stroke-linejoin="round" class="text-pink-400">
                                     <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
@@ -87,12 +87,12 @@ const submit = () => {
                                         </label>
                                     </div>
 
-                                    <div class="flex justify-between items-center pt-4">
+                                    <div class="lg:flex lg:justify-between lg:items-center pt-4">
                                         <Link :href="route('register')"
                                             class="underline text-sm text-pink-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                         Register for a new account
                                         </Link>
-                                        <div>
+                                        <div class="flex justify-between lg:align-baseline">
                                             <Link v-if="canResetPassword" :href="route('password.request')"
                                                 class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                             Forgot your password?

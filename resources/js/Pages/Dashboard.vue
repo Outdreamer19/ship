@@ -3,37 +3,29 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
 
 const props = defineProps({
-    packages: Object,
-    user: Object,
-    status: Object,
+    userStatistics: Object,
+    recentPackages: Object,
     balance: Object
 })
-</script>
 
-<script>
-
-export default {
-    methods: {
-        changeColor(status) {
-            try {
-                if (status == 'Received at Warehouse') {
-                    return "yellow";
-                }
-                else if (status == 'Waiting for Pickup') {
-                    return "orange";
-                } else if (status == 'Package Delivered') {
-                    return "green";
-                } else if (status == 'Package Cancelled') {
-                    return "red";
-                } else {
-                    return "gray";
-                }
-            } catch (error) {
-                return "gray";
-            }
+const packageStatusColor = (status) => {
+    try {
+        if (status == 'Received at Warehouse') {
+            return "bg-yellow-100 text-yellow-800";
         }
+        else if (status == 'Waiting for Pickup') {
+            return "bg-orange-100 text-orange-800";
+        } else if (status == 'Package Delivered') {
+            return "bg-green-100 text-green-800";
+        } else if (status == 'Package Cancelled') {
+            return "bg-red-100 text-red-800";
+        } else {
+            return "bg-gray-100 text-gray-800";
+        }
+    } catch (error) {
+        return "bg-gray-100 text-gray-800";
     }
-};
+}
 </script>
 
 <template>
@@ -77,7 +69,7 @@ export default {
                                 <div class="text-center">
                                     <h3
                                         class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-cyan-400 dark:text-gray-200">
-                                        {{ props.packages.total }}
+                                       {{ props.userStatistics.total_packages }}
                                     </h3>
                                 </div>
 
@@ -117,7 +109,7 @@ export default {
                                 <div class="text-center">
                                     <h3
                                         class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-cyan-400 dark:text-gray-200">
-                                        {{ props.status.length }}
+                                        {{ props.userStatistics.total_packages_processing }}
                                     </h3>
                                 </div>
 
@@ -238,7 +230,7 @@ export default {
                                                 </thead>
 
                                                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                                                    <tr v-for="item in packages.data" :key="item.id">
+                                                    <tr v-for="item in recentPackages" :key="item.id">
                                                         <td class="size-px whitespace-nowrap">
                                                             <div class="px-6 lg:ps-3 xl:ps-0 pe-6 py-3">
                                                                 <div class="flex pl-4 items-center gap-x-3">
@@ -272,7 +264,7 @@ export default {
                                                         </td>
                                                         <td class="size-px whitespace-nowrap">
                                                             <div class="px-6 py-3">
-                                                                <span :class="changeColor(item.status)"
+                                                                <span :class="packageStatusColor(item.status)"
                                                                     class="py-1 px-1.5 inline-flex items-center gap-x-1 text-xs font-medium rounded-full dark:bg-teal-500/10 dark:text-teal-500">
                                                                     <svg class="size-2.5"
                                                                         xmlns="http://www.w3.org/2000/svg" width="16"
@@ -362,11 +354,11 @@ export default {
                                     {{ $page.props.auth.user.name }}
                                 </p>
                                 <p class="text-md sm:text-md lg:text-lg text-gray-800 dark:text-gray-200">
-                                    1910 S State Road
+                                    1910 South State Road 7
                                 </p>
                                 <p class="text-md sm:text-md lg:text-lg text-gray-800 dark:text-gray-200">
                                     <span class="bg-pink-50 px-2 rounded-md"> Suite #9 BS {{
-                                        $page.props.auth.user.customer_number
+                                       props.userStatistics.customer_number
                                         }}</span>
                                 </p>
                                 <p class="text-md sm:text-md lg:text-lg text-gray-800 dark:text-gray-200">

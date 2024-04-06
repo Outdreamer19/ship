@@ -22,10 +22,10 @@ const store = () => {
         preserveState: true,
         preserveScroll: true,
         onSuccess: () => {
-            alert('success');
+            // alert('success');
         },
         onError: (error) => {
-            console.log(error);
+            // console.log(error);
         },
     });
 };
@@ -149,8 +149,8 @@ const store = () => {
                                     <label for="order_description"
                                         class="block mb-2 text-sm text-cyan-500 font-medium dark:text-white">Order
                                         Description</label>
-                                    <textarea v-model="form.order_description" id="order_description" placeholder="Shoes, Makeup kit etc..."
-                                        name="order_description" rows="4"
+                                    <textarea v-model="form.order_description" id="order_description"
+                                        placeholder="Shoes, Makeup kit etc..." name="order_description" rows="4"
                                         class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"></textarea>
                                     <p class="text-red-500 text-xs" v-if="form.errors.order_description">
                                         {{ form.errors.order_description }}

@@ -131,7 +131,7 @@ const props = defineProps({
                                             class="inline-flex items-center gap-x-2 py-3 px-4 text-sm border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg dark:border-gray-700 dark:text-gray-200">
                                             <div class="flex items-center justify-between w-full">
                                                 <span>Weight :</span>
-                                                <span>{{ package.weight }}(lbs)</span>
+                                                <span>{{ package.weight }}</span>
                                             </div>
                                         </li>
                                         <li

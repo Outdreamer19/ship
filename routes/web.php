@@ -15,7 +15,7 @@ Route::get('/', function () {
 // Authenticated routes
 Route::middleware('auth')->group(function () {
     Route::get('dashboard', DashboardController::class)->name('dashboard');
-    Route::resource('packages', PackageController::class);
+    Route::resource('packages', PackageController::class)->only('index', 'show');
     Route::resource('alerts', AlertController::class);
 
     Route::get('/calculator', function () {

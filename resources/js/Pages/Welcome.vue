@@ -32,7 +32,7 @@ function handleImageError() {
 
 
     <div
-        class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+        class="relative overflow-hidden sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
         <!-- <div v-if="canLogin" class="sm:fixed sm:top-0 sm:right-0 p-6 text-end">
             <Link v-if="$page.props.auth.user" :href="route('dashboard')"
                 class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
@@ -249,13 +249,13 @@ function handleImageError() {
                     </div>
 
                     <h3
-                        class="animate__animated animate__fadeInUp animate__delay-2s max-w-2xl px-5  text-3xl font-black leading-tight text-center text-pink-600 sm:mt-0 sm:px-0 sm:text-6xl">
+                        class="animate__animated animate__fadeInUp animate__delay-2s max-w-2xl px-5 text-3xl font-black leading-tight text-center text-pink-600 mt-8 sm:px-0 sm:text-6xl">
                         How it works</h3>
                     <div class="flex flex-col w-full mt-0 lg:flex-row sm:mt-5 lg:mt-10">
 
                         <div class="w-full max-w-md p-4 mx-auto mb-0 sm:mb-16 lg:mb-0 lg:w-1/3">
                             <div
-                                class="relative flex flex-col items-center justify-center w-full h-full p-20 mr-5 rounded-lg">
+                                class="relative flex flex-col items-center justify-center w-full lg:h-full p-8 lg:p-20 mr-5 rounded-lg">
                                 <svg class="absolute w-full h-full text-gray-100 fill-current" viewBox="0 0 377 340"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <g>
@@ -295,7 +295,7 @@ function handleImageError() {
                                 <!-- FEATURE Icon 2 -->
                                 <img src="/img/bs_shopping_bag.png" alt="step 1" class="z-10 h-16" />
                                 <h4 class="relative mt-6 text-lg font-bold text-yellow-300">Step 2</h4>
-                                <p class="relative mt-2 text-base text-center text-gray-600">Shop at your favourite
+                                <p class="relative mt-2 text-base text-center text-gray-600">Shop at your favorite
                                     stores
                                     world-wide and send item(s) to your Bright Smile Courier shipping address OR
                                     have
@@ -330,9 +330,9 @@ function handleImageError() {
                         </div>
 
                     </div>
-                    <h1 class="flex font-extrabold text-gray-900 text-[50pt]"><img
+                    <h1 class="flex font-extrabold text-gray-900 text-3xl lg:text-[50pt]"><img
                             src="https://cdn-icons-png.flaticon.com/128/756/756940.png" alt="step 1"
-                            class="z-10 h-24 animate-bounce" />Final
+                            class="z-10 h-20 animate-bounce" />Final
                         Step
                     </h1>
                     <p class="text-xl text-center font ">You will receive a <b class="text-pink-500">notification</b>
@@ -385,7 +385,7 @@ function handleImageError() {
                                                                 class="px-6 py-3 text-center whitespace-nowrap">
                                                                 <span
                                                                     class="text-md text-center font-bold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                                                                    Weight<br> <small>(LBS)</small>
+                                                                    Weight<br> <small></small>
                                                                 </span>
                                                             </th>
 
@@ -597,7 +597,7 @@ function handleImageError() {
                     <div class="items-center flex flex-wrap">
                         <div class="w-full md:w-4/12 ml-auto mr-auto px-4">
                             <img alt="..." class="max-w-full rounded-lg shadow-lg"
-                                src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80">
+                                src="https://images.unsplash.com/photo-1577702312572-5bb9328a9f15?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
                         </div>
                         <div class="w-full md:w-5/12 ml-auto mr-auto px-4">
                             <div class="md:pr-12 mt-6 md:mt-0">
@@ -659,18 +659,10 @@ function handleImageError() {
                                 rate.</p>
                         </div>
                     </div> -->
-                    <div class="grid grid-cols-2 gap-4 pt-20">
+                    <div class="grid lg:grid-cols-2 gap-4 pt-10">
                         <div>
                             <h1 class="text-4xl font-semibold text-yellow-400">USING OUR CREDIT CARD</h1>
-                            <p class="text-lg leading-relaxed m-4 text-gray-600">Don't have a credit card? You may
-                                use
-                                ours at a
-                                low cost of $1000 JMD for items under $50 USD. You may contact us via whatsapp or
-                                call
-                                us
-                                directly. We will place the order for you and you make the payment cash or online
-                                bank
-                                transfer.
+                            <p class="text-lg leading-relaxed m-4 text-gray-600">Don't have a credit card? You may use ours at a one time processing fee of $1000 JMD. You may contact us via whatsapp or call us directly. We will place the order for you and you make the payment cash or online bank transfer.
                             </p>
                             <img src="img/cc-shopping.png" alt="credit card" />
                         </div>
@@ -743,14 +735,14 @@ function handleImageError() {
                 <div class="container mx-auto px-4 lg:pt-20 lg:pb-14">
                     <div class="flex flex-wrap text-center justify-center">
                         <div class="w-full lg:w-6/12 px-4">
-                            <h2 class="text-4xl font-semibold text-white">Connect with us</h2>
+                            <h2 class="text-4xl mt-10 font-semibold text-white">Connect with us</h2>
                             <p class="text-lg leading-relaxed mt-4 mb-4 text-gray-500">You may connect with us through
                                 any of
                                 our social media platforms listed below.</p>
                         </div>
                     </div>
                     <div class="flex flex-wrap mt-12 justify-center">
-                        <div class="w-full lg:w-3/12 px-4 text-center">
+                        <div class="lg:w-3/12 px-4 text-center">
                             <a href="https://www.instagram.com/brightsmile_courier/" target="_blank">
                                 <div
                                     class="text-gray-900 p-1 w-14 h-14 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
@@ -760,7 +752,7 @@ function handleImageError() {
                                 <p class="mt-2 mb-4 text-gray-500">Brightsmile_courier</p>
                             </a>
                         </div>
-                        <div class="w-full lg:w-3/12 px-4 text-center">
+                        <div class="lg:w-3/12 px-4 text-center">
                             <a href="" target="_blank">
                                 <div
                                     class="text-gray-900 p-1 w-14 h-14 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
@@ -770,7 +762,7 @@ function handleImageError() {
                                 <p class="mt-2 mb-4 text-gray-500">Brightsmile_courier</p>
                             </a>
                         </div>
-                        <div class="w-full lg:w-3/12 px-4 text-center">
+                        <div class="lg:w-3/12 px-4 text-center">
                             <a href="" target="_blank">
                                 <div
                                     class="text-gray-900 p-1 w-14 h-14 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
@@ -790,8 +782,8 @@ function handleImageError() {
                     <div class="flex flex-wrap justify-center">
                         <div class="w-full lg:w-8/12 px-4">
 
-                            <div class="py-2 mr-2 bg-gray-100 dark:bg-gray-800 sm:rounded-lg">
-                                <div class="flex justify-center mx-auto">
+                            <div class="py-2 mr-2 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                                <div class="pl-4 lg:flex justify-center mx-auto">
 
                                     <div class="flex items-center mr-4 text-white-600 dark:text-gray-400">
                                         <svg fill="none" stroke="currentColor" stroke-linecap="round"
@@ -823,7 +815,7 @@ function handleImageError() {
 
 
                                 </div>
-                                <div class="flex justify-center">
+                                <div class="pl-4 pt-4 lg:flex justify-center">
 
 
                                     <div class="flex items-center mr-4 text-gray-600 dark:text-gray-400">
@@ -835,11 +827,11 @@ function handleImageError() {
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                                                 d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                         </svg>
-                                        <div class="mr-5 text-sm tracking-wide font-semibold w-60">
+                                        <div class="mr-5 ml-4 text-sm tracking-wide font-semibold w-60">
                                             Montego Bay, St James Jamaica
                                         </div>
                                     </div>
-                                    <div class="flex items-center mt-2 text-gray-600 dark:text-gray-400">
+                                    <div class="flex items-center mt-3 text-gray-600 dark:text-gray-400">
                                         <svg fill="none" stroke="currentColor" stroke-linecap="round"
                                             stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
                                             class="w-6 h-6 text-pink-600">
@@ -858,7 +850,7 @@ function handleImageError() {
                 <div
                     class="container max-w-7xl bg-gray-900 mx-auto mt-5 pb-5 sm:mt-12 grid gap-y- sm:gap-y-0 sm:flex sm:justify-between sm:items-center">
                     <div class="flex justify-between items-center">
-                        <p class="text-sm text-gray-400">© 2024 Bright Smile Courier. All rights reserved.</p>
+                        <p class="text-sm ml-4 text-gray-400">© 2024 Bright Smile Courier. All rights reserved.</p>
                     </div>
                     <!-- End Col -->
 

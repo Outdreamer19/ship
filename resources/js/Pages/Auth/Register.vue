@@ -39,15 +39,15 @@ const submit = () => {
                 <div class="block rounded-lg bg-white shadow-lg dark:bg-neutral-800">
                     <div class="g-0 lg:flex lg:flex-wrap">
                         <!-- Left column container-->
-                        <div class="px-4 md:px-0 lg:w-6/12">
-                            <a href="/" class="relative top-8 left-8">
+                        <div class="px-4 pt-3 md:px-0 lg:w-6/12">
+                            <a href="/" class="lg:relative lg:top-8 lg:left-8">
                                 <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2"
                                     fill="none" stroke-linecap="round" stroke-linejoin="round" class="text-pink-400">
                                     <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                                     <polyline points="9 22 9 12 15 12 15 22"></polyline>
                                 </svg>
                             </a>
-                            <div class="md:mx-6 md:p-12">
+                            <div class="pb-6 md:mx-6 md:p-12">
                                 <!--Logo-->
                                 <div class="flex justify-center">
                                     <!-- <Link href="/">
@@ -55,7 +55,7 @@ const submit = () => {
                                     </Link> -->
                                 </div>
 
-                                <h1 class="text-3xl pb-4 text-cyan-400 animate__animated animate__rubberBand">Register
+                                <h1 class="text-xl lg:text-3xl pt-3 pb-4 text-cyan-500 animate__animated animate__rubberBand">Register
                                     for a new account
                                 </h1>
 

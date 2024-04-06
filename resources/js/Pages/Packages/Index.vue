@@ -3,38 +3,29 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 
 const props = defineProps({
     packages: Object,
-    status: Object
-
-
+    totalPackageProcessing: String
 })
 
-//console.log(props.packages);
-</script>
-<script>
-
-export default {
-    methods: {
-        changeColor(status) {
-            try {
-                if (status == 'Received at Warehouse') {
-                    return "yellow";
-                }
-                else if (status == 'Waiting for Pickup') {
-                    return "orange";
-                } else if (status == 'Package Delivered') {
-                    return "green";
-                } else if (status == 'Package Cancelled') {
-                    return "red";
-                } else {
-                    return "gray";
-                }
-            } catch (error) {
-                return "gray";
-            }
+const packageStatusColor = (status) => {
+    try {
+        if (status == 'Received at Warehouse') {
+            return "bg-yellow-100 text-yellow-800";
         }
+        else if (status == 'Waiting for Pickup') {
+            return "bg-orange-100 text-orange-800";
+        } else if (status == 'Package Delivered') {
+            return "bg-green-100 text-green-800";
+        } else if (status == 'Package Cancelled') {
+            return "bg-red-100 text-red-800";
+        } else {
+            return "bg-gray-100 text-gray-800";
+        }
+    } catch (error) {
+        return "bg-gray-100 text-gray-800";
     }
-};
+}
 </script>
+
 <template>
 
     <Head title="Packages" />
@@ -66,7 +57,7 @@ export default {
 
                                     <div class="mt-1 justify-center flex items-center gap-x-2">
                                         <h3 class="text-xl sm:text-2xl font-medium text-cyan-400 dark:text-gray-200">
-                                            {{ props.packages.total }}
+                                            {{ props.packages.meta.total }}
                                         </h3>
                                     </div>
                                 </div>
@@ -85,7 +76,7 @@ export default {
 
                                     <div class="mt-1 flex justify-center items-center gap-x-2">
                                         <h3 class="text-xl sm:text-2xl font-medium text-cyan-400 dark:text-gray-200">
-                                            {{ props.status.length }}
+                                            {{ props.totalPackageProcessing }}
                                         </h3>
                                     </div>
                                 </div>
@@ -258,7 +249,7 @@ export default {
                                             </td>
                                             <td class="size-px whitespace-nowrap">
                                                 <div class="px-6 py-3">
-                                                    <span :class="changeColor(item.status)" class="py-1 px-1.5 inline-flex items-center gap-x-1 text-xs
+                                                    <span :class="packageStatusColor(item.status)" class="py-1 px-1.5 inline-flex items-center gap-x-1 text-xs
                                                         font-medium rounded-full
                                                         ">
                                                         <svg viewBox="0 0 24 24" width="22" height="22"
@@ -302,7 +293,14 @@ export default {
                                                     <Link
                                                         class="inline-flex font-semibold px-4 py-0.5 text-white bg-cyan-500 hover:bg-cyan-600 active:bg-cyan-700 focus:outline-none focus:ring focus:ring-cyan-300 rounded-full"
                                                         :href="route('packages.show', item.id)">
-                                                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-1"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+                                                    <svg viewBox="0 0 24 24" width="20" height="20"
+                                                        stroke="currentColor" stroke-width="1" fill="none"
+                                                        stroke-linecap="round" stroke-linejoin="round" class="mr-1">
+                                                        <path
+                                                            d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z">
+                                                        </path>
+                                                        <polyline points="13 2 13 9 20 9"></polyline>
+                                                    </svg>
                                                     Details
                                                     </Link>
                                                 </div>
@@ -362,25 +360,3 @@ export default {
 
     </AuthenticatedLayout>
 </template>
-<style scoped>
-.orange {
-    background-color: rgb(255 237 213);
-    color: rgb(154 52 18);
-
-}
-
-.yellow {
-    background-color: rgb(254 249 195);
-    color: rgb(119, 109, 3);
-}
-
-.green {
-    background-color: rgb(204 251 241);
-    color: rgb(17 94 89);
-}
-
-.red {
-    background-color: rgb(254 226 226);
-    color: rgb(187, 6, 6);
-}
-</style>

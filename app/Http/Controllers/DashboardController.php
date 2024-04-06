@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Inertia\Inertia;
 use App\Models\Package;
+use Akaunting\Money\Money;
+use App\Enums\PackageStatus;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\User;
+use App\Http\Resources\PackageResource;
 
 class DashboardController extends Controller
 {
@@ -15,32 +18,38 @@ class DashboardController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $status = 'Package Delivered';
         return Inertia::render('Dashboard', [
+            'userStatistics' => User::query()
+                ->select('id', 'customer_number')
+                ->where('id', auth()->user()->id)
+                ->withCount(['packages as total_packages' => function ($query) {
+                    $query->where('status', PackageStatus::WAREHOUSE)
+                    ->orWhere('status', PackageStatus::DELIVERED)
+                    ->orWhere('status', PackageStatus::PICKUP);
+                }])
+                ->withCount(['packages as total_packages_processing' => function ($query) {
+                    $query->where('status', PackageStatus::WAREHOUSE)
+                    ->orWhere('status', PackageStatus::PICKUP);
+                }])
+                ->first(),
 
+            'recentPackages' => PackageResource::collection(
+                Package::query()
+                    ->whereBelongsTo(auth()->user())
+                    ->orderBy('id', 'DESC')
+                    ->where('status', PackageStatus::WAREHOUSE)
+                    ->orWhere('status', PackageStatus::PICKUP)
+                    ->orWhere('status', PackageStatus::DELIVERED)
+                    ->take(5)
+                    ->get()
+            ),
 
-            'packages' => Package::where('user_id', auth()->user()->id)->paginate(5),
-
-            'user' => User::where('id', auth()->user()->id)->paginate(10),
-
-            //'status' => Package::where('status', 'Package Delivered', auth()->user()->id)->paginate(),
-
-            'status' => Package::where(function ($query) {
-                $query->where('user_id', auth()->user()->id);
-            })->where(function ($query) use ($status) {
-                $query->where('status', '!=', $status);
-            })->get(),
-
-            'balance' => Package::where(function ($query) {
-                $query->where('user_id', auth()->user()->id);
-            })->where(function ($query) use ($status) {
-                $query->where('status', '!=', 'Package Delivered');
-            })->get()->sum('cost'),
-
-            //'balance' =>  Package::where('status', '!=', 'Package Delivered')->get()->sum('cost'),
-
-
-
+            'balance' => Package::query()
+                ->whereBelongsTo(auth()->user())
+                ->orderBy('id', 'DESC')
+                ->where('status', PackageStatus::WAREHOUSE)
+                ->orWhere('status', PackageStatus::PICKUP)
+                ->sum('balance')
         ]);
     }
 }
