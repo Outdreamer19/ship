@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PackageResource extends JsonResource
+class AlertResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -21,15 +21,13 @@ class PackageResource extends JsonResource
             'tracking_number' => $this->tracking_number,
             'vendor' => $this->vendor,
             'weight' => $this->weight .' (lbs)',
-            'status' => $this->status,
+            //'status' => $this->status,
             'pickup_location' => $this->pickup_location,
             'order_description' => $this->order_description,
-            'balance' => '$' . $this->balance,
             'courier' => $this->courier,
             'usd_value' => '$' .$this->usd_value,
             "invoice_path" => Storage::url($this->invoice_path),
-            'created_at' => $this->created_at->format('M d, Y'),
-            'updated_at' => $this->updated_at->format('M d, Y')
+            'created_at' => $this->created_at->format('M d, Y')
         ];
     }
 }

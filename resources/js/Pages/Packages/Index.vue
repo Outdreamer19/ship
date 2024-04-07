@@ -31,7 +31,7 @@ const packageStatusColor = (status) => {
     <Head title="Packages" />
 
     <AuthenticatedLayout>
-        <div aria-hidden="true" class=" bg-gradient-to-b from-cyan-50  from-1/5 via-white to-white">
+        <div aria-hidden="true" class="min-h-screen bg-gradient-to-b from-cyan-50  from-1/5 via-white to-white">
             <header>
                 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-6">
                     <h1 class="text-3xl font-bold leading-tight tracking-tight text-gray-900">Packages</h1>
@@ -225,7 +225,7 @@ const packageStatusColor = (status) => {
                                                             alt="Image Description">
                                                         <div class="grow">
                                                             <span
-                                                                class="block text-sm font-semibold text-gray-600 dark:text-gray-200">{{
+                                                                class="uppercase text-sm font-medium px-2 py-1 bg-cyan-100 text-cyan-800 rounded-lg dark:text-gray-200">{{
                                                 item.tracking_number }}
                                                             </span>
                                                         </div>
@@ -243,8 +243,7 @@ const packageStatusColor = (status) => {
                                             </td>
                                             <td class="size-px whitespace-nowrap">
                                                 <div class="px-6 py-3">
-                                                    <span class="text-sm text-gray-600">{{ item.weight }}
-                                                        <small class="text-slate-800">lbs</small></span>
+                                                    <span class="text-sm text-gray-600">{{ item.weight }}</span>
                                                 </div>
                                             </td>
                                             <td class="size-px whitespace-nowrap">
@@ -274,7 +273,7 @@ const packageStatusColor = (status) => {
                                                                 viewBox="0 0 24 24" width="20" height="20"
                                                                 stroke="currentColor" stroke-width="2" fill="none"
                                                                 stroke-linecap="round" stroke-linejoin="round"
-                                                                class="mr-1 text-cyan-400">
+                                                                class="mr-1 text-teal-500">
                                                                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2">
                                                                 </rect>
                                                                 <line x1="16" y1="2" x2="16" y2="6"></line>
@@ -291,16 +290,9 @@ const packageStatusColor = (status) => {
                                             <td class="size-px whitespace-nowrap">
                                                 <div class="px-6 py-1.5">
                                                     <Link
-                                                        class="inline-flex font-semibold px-4 py-0.5 text-white bg-cyan-500 hover:bg-cyan-600 active:bg-cyan-700 focus:outline-none focus:ring focus:ring-cyan-300 rounded-full"
+                                                        class="inline-flex items-center font-semibold px-4 py-0.5 text-white bg-cyan-500 hover:bg-cyan-600 active:bg-cyan-700 focus:outline-none focus:ring focus:ring-cyan-300 rounded-full"
                                                         :href="route('packages.show', item.id)">
-                                                    <svg viewBox="0 0 24 24" width="20" height="20"
-                                                        stroke="currentColor" stroke-width="1" fill="none"
-                                                        stroke-linecap="round" stroke-linejoin="round" class="mr-1">
-                                                        <path
-                                                            d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z">
-                                                        </path>
-                                                        <polyline points="13 2 13 9 20 9"></polyline>
-                                                    </svg>
+                                                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-1"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                                                     Details
                                                     </Link>
                                                 </div>

@@ -34,7 +34,7 @@ const packageStatusColor = (status) => {
 
     <AuthenticatedLayout>
 
-        <div aria-hidden="true" class="pb-4 bg-gradient-to-b from-cyan-50  from-1/5 via-white to-white">
+        <div aria-hidden="true" class="min-h-screen pb-4 bg-gradient-to-b from-cyan-50  from-1/5 via-white to-white">
 
             <!-- End Gradients -->
 
@@ -51,7 +51,7 @@ const packageStatusColor = (status) => {
 
             <div class="py-2">
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    
+
                     <!-- Card Section -->
 
                     <div class="max-w-[85rem] px-4 py-2 sm:px-6 lg:px-8 lg:py-4 mx-auto">
@@ -69,7 +69,7 @@ const packageStatusColor = (status) => {
                                 <div class="text-center">
                                     <h3
                                         class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-cyan-400 dark:text-gray-200">
-                                       {{ props.userStatistics.total_packages }}
+                                        {{ props.userStatistics.total_packages }}
                                     </h3>
                                 </div>
 
@@ -139,10 +139,10 @@ const packageStatusColor = (status) => {
                                     <dt class="pe-3">
                                         <span class="text-gray-600">
                                             <span class="inline-block text-sm">
-                                                JMD
+                                                JMD Currency
                                             </span>
                                         </span>
-                                        <span class="block text-sm text-gray-500">Currency</span>
+                                        
                                     </dt>
 
                                 </dl>
@@ -239,7 +239,7 @@ const packageStatusColor = (status) => {
                                                                         alt="Image Description">
                                                                     <div class="grow">
                                                                         <span
-                                                                            class="block text-xs font-medium bg-yellow-100 rounded-md px-2 text-gray-800 dark:text-gray-200">{{
+                                                                            class="uppercase text-sm font-medium bg-cyan-100 rounded-lg px-2 py-1 text-cyan-800 dark:text-gray-200">{{
                         item.tracking_number }}
                                                                         </span>
                                                                     </div>
@@ -258,7 +258,7 @@ const packageStatusColor = (status) => {
                                                         <td class="size-px whitespace-nowrap">
                                                             <div class="px-6 py-3">
                                                                 <span class="text-sm text-gray-500">{{
-                                                                    item.weight
+                            item.weight
                                                                     }}</span>
                                                             </div>
                                                         </td>
@@ -358,7 +358,7 @@ const packageStatusColor = (status) => {
                                 </p>
                                 <p class="text-md sm:text-md lg:text-lg text-gray-800 dark:text-gray-200">
                                     <span class="bg-pink-50 px-2 rounded-md"> Suite #9 BS {{
-                                       props.userStatistics.customer_number
+                                        props.userStatistics.customer_number
                                         }}</span>
                                 </p>
                                 <p class="text-md sm:text-md lg:text-lg text-gray-800 dark:text-gray-200">

@@ -349,11 +349,10 @@ function handleImageError() {
                     <!-- Grid -->
                     <div class="relative z-10 lg:grid lg:grid-cols-12 lg:gap-4 lg:items-center">
                         <div class="mb-10 lg:mb-0 lg:col-span-6 lg:col-start-7 lg:order-2">
-                            <h3
-                                class="max-w-2xl px-5  text-3xl font-black leading-tight text-center text-pink-600 sm:mt-0 sm:px-0 sm:text-6xl">
-                                OUR RATES</h3>
+                            <h3 class="max-w-2xl px-5  text-3xl font-black leading-tight text-center text-pink-600 sm:mt-0 sm:px-0 sm:text-6xl">
+                                OUR RATES
+                            </h3>
 
-                            <!-- Tab Navs -->
                             <!-- Table Section -->
                             <div class="max-w- px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
                                 <!-- Card -->
@@ -515,38 +514,24 @@ function handleImageError() {
                                 <!-- End Card -->
                             </div>
                             <!-- End Table Section -->
-                            <!-- End Tab Navs -->
                         </div>
                         <!-- End Col -->
 
                         <div class="lg:col-span-5">
                             <div class="relative">
                                 <!-- Tab Content -->
-                                <div>
-                                    <div id="tabs-with-card-1" role="tabpanel" aria-labelledby="tabs-with-card-item-1">
-                                        <img class="shadow-xl shadow-gray-200 rounded-xl dark:shadow-gray-900/[.2]"
+                                <div class="p-10">
+                                    <div class=" lg:h-[500px] ">
+                                        <img class="h-[100%] mx-auto shadow-xl shadow-gray-200 rounded-xl dark:shadow-gray-900/[.2]"
                                             src="https://images.pexels.com/photos/6347566/pexels-photo-6347566.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                                             alt="Image Description">
                                     </div>
 
-                                    <div id="tabs-with-card-2" class="hidden" role="tabpanel"
-                                        aria-labelledby="tabs-with-card-item-2">
-                                        <img class="shadow-xl shadow-gray-200 rounded-xl dark:shadow-gray-900/[.2]"
-                                            src="https://images.unsplash.com/photo-1665686306574-1ace09918530?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&h=1220&q=80"
-                                            alt="Image Description">
-                                    </div>
-
-                                    <div id="tabs-with-card-3" class="hidden" role="tabpanel"
-                                        aria-labelledby="tabs-with-card-item-3">
-                                        <img class="shadow-xl shadow-gray-200 rounded-xl dark:shadow-gray-900/[.2]"
-                                            src="https://images.unsplash.com/photo-1598929213452-52d72f63e307?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&h=1220&q=80"
-                                            alt="Image Description">
-                                    </div>
                                 </div>
                                 <!-- End Tab Content -->
 
                                 <!-- SVG Element -->
-                                <div class="hidden absolute top-0 end-0 translate-x-20 md:block lg:translate-x-20">
+                                <div class="hidden absolute top-0 right-20 end-0 translate-x-20 md:block lg:translate-x-20">
                                     <svg class="w-16 h-auto text-yellow-400" width="121" height="135"
                                         viewBox="0 0 121 135" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5 16.4754C11.7688 27.4499 21.2452 57.3224 5 89.0164"
@@ -662,7 +647,11 @@ function handleImageError() {
                     <div class="grid lg:grid-cols-2 gap-4 pt-10">
                         <div>
                             <h1 class="text-4xl font-semibold text-yellow-400">USING OUR CREDIT CARD</h1>
-                            <p class="text-lg leading-relaxed m-4 text-gray-600">Don't have a credit card? You may use ours at a one time processing fee of $1000 JMD. You may contact us via whatsapp or call us directly. We will place the order for you and you make the payment cash or online bank transfer.
+                            <p class="text-lg leading-relaxed m-4 text-gray-600">Don't have a credit card? You may use
+                                ours at a
+                                one time processing fee of $1000 JMD. You may contact us via whatsapp or call us
+                                directly. We
+                                will place the order for you and you make the payment cash or online bank transfer.
                             </p>
                             <img src="img/cc-shopping.png" alt="credit card" />
                         </div>

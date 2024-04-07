@@ -139,7 +139,7 @@ const store = () => {
                                         <option selected>Select a Location</option>
                                         <option>Montego Bay Square</option>
                                         <option>Falmouth Square</option>
-                                        <option>On the main (Between Montego Bay & Falmouth)</option>
+                                        <option value="On the main">On the main (Between Montego Bay & Falmouth)</option>
                                     </select>
                                     <p class="text-red-500 text-xs" v-if="form.errors.pickup_location">
                                         {{ form.errors.pickup_location }} </p>

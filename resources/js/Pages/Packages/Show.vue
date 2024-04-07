@@ -144,16 +144,16 @@ const props = defineProps({
                                         <li
                                             class="inline-flex items-center gap-x-2 py-3 px-4 text-sm border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg dark:border-gray-700 dark:text-gray-200">
                                             <div class="flex items-center justify-between w-full">
-                                                <span></span>
-                                                <span> </span>
+                                                <span>Pickup Location :</span>
+                                                <span>{{ package.pickup_location }}</span>
                                             </div>
 
                                         </li>
                                         <li
                                             class="inline-flex items-center gap-x-2 py-3 px-4 text-lg font-semibold bg-gray-50 border text-cyan-400 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg dark:bg-slate-800 dark:border-gray-700 dark:text-gray-200">
                                             <div class="flex items-center justify-between w-full">
-                                                <span>Total Charge : </span>
-                                                <span class="text-cyan-400">${{ package.balance }}</span>
+                                                <span>Total Charge JMD : </span>
+                                                <span class="text-cyan-400">{{ package.balance }}</span>
                                             </div>
                                         </li>
                                     </ul>

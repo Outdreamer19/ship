@@ -25,15 +25,6 @@ const confirmDeleteAlert = () => {
         },
     });
 
-    //console.log(alertIdToDelete.value)
-    // axios.delete(route('alerts.destroy', alertIdToDelete.value))
-    //     .then(response => {
-    //         console.log(response);
-    //     })
-    //     .catch(error => {
-    //         console.error(error);
-    //     });
-
 }
 
 
@@ -51,7 +42,7 @@ const confirmDeleteAlert = () => {
             <Link :href="route('alerts.create')">Create Alert</Link>
 
         </div> -->
-        <div aria-hidden="true" class=" bg-gradient-to-b from-cyan-50  from-1/5 via-white to-white">
+        <div aria-hidden="true" class="min-h-screen bg-gradient-to-b from-cyan-50  from-1/5 via-white to-white">
 
 
             <header>
@@ -165,10 +156,10 @@ const confirmDeleteAlert = () => {
                                                     Vendor</th>
                                                 <th scope="col"
                                                     class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                                    Order Description</th>
+                                                    Weight</th>
                                                 <th scope="col"
                                                     class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                                    Weight</th>
+                                                    Order Description</th>
                                                 <th scope="col"
                                                     class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                                     Courier</th>
@@ -187,28 +178,44 @@ const confirmDeleteAlert = () => {
                                         <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
                                             <tr v-for="alert in alerts.data" :key="alert.id">
                                                 <td
-                                                    class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                                                    {{ new
-                Date(alert.created_at).toLocaleString() }}</td>
+                                                    class="flex items-center whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                        class="w-6 h-6 text-teal-500 pr-1">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+                                                    </svg>
+                                                    {{ alert.created_at }}
+                                                </td>
                                                 <td
-                                                    class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                                                    {{ alert.tracking_number }}</td>
+                                                    class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium sm:pl-6">
+                                                    <span
+                                                        class="uppercase px-2 py-1 bg-cyan-100 text-cyan-800 rounded-lg">{{
+                                                alert.tracking_number }}</span>
+                                                </td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                                     {{ alert.vendor }}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                                    {{ alert.order_description }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                                     {{ alert.weight }}</td>
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                                    {{ alert.order_description }}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                                     {{ alert.courier }}</td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                                     {{ alert.usd_value }}</td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                                    <a :href="alert.invoice_path" target="_blank">view
-                                                        Invoice</a>
+                                                <td class="whitespace-nowrap w-2 px-3 py-4 text-sm text-gray-500">
+                                                    <a :href="alert.invoice_path" target="_blank">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                            class="w-6 h-6 text-amber-400">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                                                        </svg>
+
+                                                    </a>
                                                 </td>
                                                 <td
-                                                    class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                                    class="relative whitespace-nowrap w-2 py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                                     <button @click='showDeleteModal(alert.id)' type="button"
                                                         class="text-red-600 hover:text-red-900"><svg viewBox="0 0 24 24"
                                                             width="24" height="24" stroke="currentColor"

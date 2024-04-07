@@ -2,6 +2,9 @@
 
 namespace App\Filament\Resources;
 
+use App\Enums\PackageStatus;
+use App\Enums\PackageStatus1;
+use App\Enums\PickupLocation;
 use App\Filament\Resources\PackageResource\Pages;
 use App\Filament\Resources\PackageResource\RelationManagers;
 use App\Models\Package;
@@ -34,23 +37,26 @@ class PackageResource extends Resource
                 Forms\Components\TextInput::make('vendor')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('pickup_location')
-                    ->required()
-                    ->maxLength(255),
+                // Forms\Components\TextInput::make('pickup_location')
+                //     ->required()
+                //     ->maxLength(255),
+                Forms\Components\Select::make('pickup_location')
+                    ->options(PickupLocation::class)
+                    ->required(),
                 Forms\Components\Textarea::make('order_description')
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('balance')
                     ->numeric(),
-                Forms\Components\TextInput::make('status')
-                    ->required()
-                    ->maxLength(255),
+                Forms\Components\Select::make('status')
+                    ->options(PackageStatus::class)
+                    ->required(),
                 Forms\Components\TextInput::make('courier')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('usd_value')
                     ->numeric(),
                 Forms\Components\DateTimePicker::make('received_at'),
-                Forms\Components\TextInput::make('invoice_path')
-                    ->maxLength(255),
+                // Forms\Components\TextInput::make('invoice_path')
+                //     ->maxLength(255),
             ]);
     }
 
@@ -68,6 +74,8 @@ class PackageResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('vendor')
                     ->searchable(),
+                    Tables\Columns\TextColumn::make('order_description')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('pickup_location')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('balance')
@@ -82,9 +90,9 @@ class PackageResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('received_at')
                     ->dateTime()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('invoice_path')
-                    ->searchable(),
+                     ->sortable(),
+                // Tables\Columns\TextColumn::make('invoice_path')
+                //     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

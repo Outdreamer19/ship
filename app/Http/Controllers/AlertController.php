@@ -2,29 +2,36 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Response;
-use App\Enums\PackageStatus;
-use App\Models\Package;
-use App\Models\Alert;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
-use Symfony\Contracts\Service\Attribute\Required;
+use App\Models\Alert;
+use App\Models\Package;
+use App\Enums\PackageStatus;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use App\Http\Resources\AlertResource;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\AlertStoreRequest;
+use Symfony\Contracts\Service\Attribute\Required;
 
 
 class AlertController extends Controller
 {
     public function index()
     {
+        // return Inertia::render('Alerts/Index', [
+        //     'alerts' => Package::query()
+        //     ->where('status', PackageStatus::PRE_ALERT)
+        //     ->where('user_id', auth()->user()->id)->paginate(6),
+        // ]);
         return Inertia::render('Alerts/Index', [
-            'alerts' => Package::query()
-            ->where('status', PackageStatus::PRE_ALERT)
-            ->where('user_id', auth()->user()->id)->paginate(6),
-            
-            
+            'alerts' => AlertResource::collection(
+                Package::query()
+                    ->where('status', PackageStatus::PRE_ALERT)
+                    ->where('user_id', auth()->user()->id)->paginate(6),
+            ),
         ]);
+        
     }
 
     public function create()
@@ -63,25 +70,11 @@ class AlertController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Alert $alert)
+    public function show(Package $alert)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Alert $alert)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Alert $alert)
-    {
-        //
+        return Inertia::render('Packages/Show', [
+            'alert' => new AlertResource($alert),
+        ]);
     }
 
     /**

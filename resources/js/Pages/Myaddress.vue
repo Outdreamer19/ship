@@ -34,7 +34,7 @@ export default {
     <Head title="Dashboard" />
 
     <AuthenticatedLayout>
-        <div aria-hidden="true" class=" bg-gradient-to-b from-cyan-50  from-1/5 via-white to-white">
+        <div aria-hidden="true" class="min-h-screen bg-gradient-to-b from-cyan-50  from-1/5 via-white to-white">
             <header>
                 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-6">
                     <h1 class="text-3xl font-bold leading-tight tracking-tight text-gray-900">Shipping Address</h1>

@@ -45,11 +45,11 @@ class DashboardController extends Controller
             ),
 
             'balance' => Package::query()
-                ->whereBelongsTo(auth()->user())
-                ->orderBy('id', 'DESC')
-                ->where('status', PackageStatus::WAREHOUSE)
-                ->orWhere('status', PackageStatus::PICKUP)
-                ->sum('balance')
+            ->whereBelongsTo(auth()->user())
+            ->orderBy('id', 'DESC')
+            ->where('status', PackageStatus::WAREHOUSE)
+            ->orWhere('status', PackageStatus::PICKUP)
+            ->sum('balance')
         ]);
     }
 }
