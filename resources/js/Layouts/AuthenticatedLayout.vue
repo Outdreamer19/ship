@@ -7,6 +7,7 @@ import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 
 const showingNavigationDropdown = ref(false);
+const adminUser = "Admin"
 </script>
 
 <template>
@@ -65,9 +66,9 @@ const showingNavigationDropdown = ref(false);
                                     <template #content>
                                         <DropdownLink :href="route('profile.edit')"> Profile </DropdownLink>
                                         <DropdownLink :href="route('myaddress')"> My Address </DropdownLink>
-                                        <a :href="'admin'"
+                                        <a :href="'admin'" v-if="$page.props.auth.user.email == 'ttcourier24@gmail.com'"
                                             class="block w-full px-4 py-2 text-start text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
-                                            Admin
+                                            {{ adminUser }}
                                         </a>
                                         <DropdownLink :href="route('logout')" method="post" as="button">
                                             Log Out
