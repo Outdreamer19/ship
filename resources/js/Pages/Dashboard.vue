@@ -7,7 +7,7 @@ const props = defineProps({
     recentPackages: Object,
     balance: Object
 })
-
+console.log(props.recentPackages);
 const packageStatusColor = (status) => {
     try {
         if (status == 'Received at Warehouse') {
@@ -15,15 +15,21 @@ const packageStatusColor = (status) => {
         }
         else if (status == 'Waiting for Pickup') {
             return "bg-orange-100 text-orange-800";
-        } else if (status == 'Package Delivered') {
+        } 
+        else if (status == 'Package Delivered') {
             return "bg-green-100 text-green-800";
-        } else if (status == 'Package Cancelled') {
-            return "bg-red-100 text-red-800";
-        } else {
+        } 
+        else if (status == 'Private') {
+            return "bg-slate-100 text-slate-800";
+        } 
+        else if (status == 'Package Cancelled') {
+            return "bg-red-100 text-red-800"; 
+        }
+        else {
             return "bg-gray-100 text-gray-800";
         }
     } catch (error) {
-        return "bg-gray-100 text-gray-800";
+        return "bg-blue-100 text-gray-800";
     }
 }
 </script>

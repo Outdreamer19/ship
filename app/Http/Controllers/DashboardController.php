@@ -23,9 +23,8 @@ class DashboardController extends Controller
                 ->select('id', 'customer_number')
                 ->where('id', auth()->user()->id)
                 ->withCount(['packages as total_packages' => function ($query) {
-                    $query->where('status', PackageStatus::WAREHOUSE)
-                    ->orWhere('status', PackageStatus::DELIVERED)
-                    ->orWhere('status', PackageStatus::PICKUP);
+                    $query->whereIn('status', [PackageStatus::WAREHOUSE, PackageStatus::PICKUP, PackageStatus::DELIVERED, PackageStatus::PRIVATE, PackageStatus::CANCELLED]);
+                    
                 }])
                 ->withCount(['packages as total_packages_processing' => function ($query) {
                     $query->where('status', PackageStatus::WAREHOUSE)
@@ -36,10 +35,8 @@ class DashboardController extends Controller
             'recentPackages' => PackageResource::collection(
                 Package::query()
                     ->whereBelongsTo(auth()->user())
+                    ->whereIn('status', [PackageStatus::WAREHOUSE, PackageStatus::PICKUP, PackageStatus::DELIVERED, PackageStatus::PRIVATE, PackageStatus::CANCELLED])
                     ->orderBy('id', 'DESC')
-                    ->where('status', PackageStatus::WAREHOUSE)
-                    ->orWhere('status', PackageStatus::PICKUP)
-                    ->orWhere('status', PackageStatus::DELIVERED)
                     ->take(5)
                     ->get()
             ),
@@ -47,8 +44,7 @@ class DashboardController extends Controller
             'balance' => Package::query()
             ->whereBelongsTo(auth()->user())
             ->orderBy('id', 'DESC')
-            ->where('status', PackageStatus::WAREHOUSE)
-            ->orWhere('status', PackageStatus::PICKUP)
+            ->whereIn('status', [PackageStatus::WAREHOUSE, PackageStatus::PICKUP])
             ->sum('balance')
         ]);
     }

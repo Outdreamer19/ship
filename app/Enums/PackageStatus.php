@@ -10,8 +10,8 @@ enum PackageStatus: string implements HasLabel
     case WAREHOUSE = 'Received at Warehouse';
     case PICKUP = 'Waiting for Pickup';
     case DELIVERED = 'Package Delivered';
-    case PRIVATE = 'Package cancelled';
-    case CANCELLED = 'Cancelled';
+    case PRIVATE = 'Private';
+    case CANCELLED = 'Package Cancelled';
 
     public function getLabel(): ?string
     {
