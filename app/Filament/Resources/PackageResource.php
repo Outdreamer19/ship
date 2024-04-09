@@ -55,6 +55,7 @@ class PackageResource extends Resource
                 Forms\Components\TextInput::make('usd_value')
                     ->numeric(),
                 Forms\Components\DateTimePicker::make('received_at'),
+                Forms\Components\FileUpload::make('invoice_path'),
                 // Forms\Components\TextInput::make('invoice_path')
                 //     ->maxLength(255),
             ]);
@@ -90,9 +91,11 @@ class PackageResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('received_at')
                     ->dateTime()
-                     ->sortable(),
-                // Tables\Columns\TextColumn::make('invoice_path')
-                //     ->searchable(),
+                    ->sortable(),
+                Tables\Columns\ImageColumn::make('invoice_path')
+                ->defaultImageUrl(url('/img/logo.png'))
+                ->extraImgAttributes(['srcset' => '/img/logo.png']),
+                    //->openable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
