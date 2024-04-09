@@ -17,16 +17,13 @@ class PackageController extends Controller
                 Package::query()
                     ->whereBelongsTo(auth()->user())
                     ->orderBy('id', 'DESC')
-                    ->where('status', PackageStatus::WAREHOUSE)
-                    ->orWhere('status', PackageStatus::PICKUP)
-                    ->orWhere('status', PackageStatus::DELIVERED)
+                    ->whereIn('status', [PackageStatus::WAREHOUSE, PackageStatus::PICKUP, PackageStatus::DELIVERED, PackageStatus::PRIVATE, PackageStatus::CANCELLED])
                     ->paginate(8)
             ),
 
             'totalPackageProcessing' => Package::query()
                 ->whereBelongsTo(auth()->user())
-                ->where('status', PackageStatus::WAREHOUSE)
-                ->orWhere('status', PackageStatus::PICKUP)
+                ->whereIn('status', [PackageStatus::WAREHOUSE, PackageStatus::PICKUP])
                 ->count()
         ]);
     }
