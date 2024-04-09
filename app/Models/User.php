@@ -51,10 +51,27 @@ class User extends Authenticatable implements FilamentUser
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return true;
-       // return $this->email == 'shane@example.com';
+        //return true;
+        //return $this->email == 'shane1obdurate@gmail.com || ttcourier24@gmail.com';
        /// return $this->id = 2;
        // return str_ends_with($this->email, '@brightsmile.com') && $this->hasVerifiedEmail();
+     
+        // Array of emails to search within
+        $emails = [
+            'shane1obdurate@gmail.com',
+            'ttcourier24@gmail.com',
+            'brightsmile249@gmail.com'
+        ];
+        
+        // Get the email to check from the request
+        $emailToCheck = $this->email;
+
+        // Check if the email exists in the array
+        $emailFound = in_array($emailToCheck, $emails);
+
+        // Return true if email found, false otherwise
+        return $emailFound;
+    
     }
 
     protected static function booted()

@@ -94,16 +94,10 @@ return [
             ],
         ],
 
-        'mailgun' => [
-            'transport' => 'mailgun',
-            // 'client' => [
-            //     'smtp',
-            //     'log',
-            // ],
-            // 'client' => [
-            //     'timeout' => 5,
-            // ],
+        'resend' => [
+            'transport' => 'resend',
         ],
+        
 
     ],
 
