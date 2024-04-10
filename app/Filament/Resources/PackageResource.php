@@ -13,6 +13,8 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Tables\Actions;
+use filament\filament;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -55,7 +57,6 @@ class PackageResource extends Resource
                 Forms\Components\TextInput::make('usd_value')
                     ->numeric(),
                 Forms\Components\DateTimePicker::make('received_at'),
-                Forms\Components\FileUpload::make('invoice_path'),
                 // Forms\Components\TextInput::make('invoice_path')
                 //     ->maxLength(255),
             ]);
@@ -92,10 +93,6 @@ class PackageResource extends Resource
                 Tables\Columns\TextColumn::make('received_at')
                     ->dateTime()
                     ->sortable(),
-                Tables\Columns\ImageColumn::make('invoice_path')
-                ->defaultImageUrl(url('/img/logo.png'))
-                ->extraImgAttributes(['srcset' => '/img/logo.png']),
-                    //->openable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -109,6 +106,12 @@ class PackageResource extends Resource
                 //
             ])
             ->actions([
+                Actions\Action::make('view')
+                    ->label('Invoice')
+                    ->icon('heroicon-s-document')
+                    ->color('danger')
+                    ->url(fn (Package $record): string => route('view.package', $record)) // Assuming 'view.file' is the route to view a file
+                    ->openUrlInNewTab(),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([

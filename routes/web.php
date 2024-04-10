@@ -18,6 +18,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('packages', PackageController::class)->only('index', 'show');
     Route::resource('alerts', AlertController::class);
 
+    Route::get('/view-package/{id}', 'App\Http\Controllers\FileController@viewFile')->name('view.package');
+
+
+
     Route::get('/calculator', function () {
         return Inertia::render('Calculator');
     })->name('calculator');
