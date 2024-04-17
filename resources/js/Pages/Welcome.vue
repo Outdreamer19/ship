@@ -1,5 +1,13 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
+import { ref } from 'vue';
+import ApplicationLogo from '@/Components/ApplicationLogo.vue';
+import Dropdown from '@/Components/Dropdown.vue';
+import DropdownLink from '@/Components/DropdownLink.vue';
+import NavLink from '@/Components/NavLink.vue';
+import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
+
+const showingNavigationDropdown = ref(false);
 
 defineProps({
     canLogin: {
@@ -7,14 +15,6 @@ defineProps({
     },
     canRegister: {
         type: Boolean,
-    },
-    laravelVersion: {
-        type: String,
-        required: true,
-    },
-    phpVersion: {
-        type: String,
-        required: true,
     },
 });
 
@@ -33,125 +33,159 @@ function handleImageError() {
 
     <div
         class="relative overflow-hidden sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-        <!-- <div v-if="canLogin" class="sm:fixed sm:top-0 sm:right-0 p-6 text-end">
-            <Link v-if="$page.props.auth.user" :href="route('dashboard')"
-                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-            Dashboard
-            </Link>
-
-            <template v-else>
-                <Link :href="route('login')"
-                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                Log in
-                </Link>
-
-                <Link v-if="canRegister" :href="route('register')"
-                    class="ms-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                Register
-                </Link>
-            </template>
-</div> -->
-
-
         <div class="w-full mx-auto">
             <div class="overflow-hidden ">
                 <!-- Header -->
+                <nav class="max-w- bg-gradient-to-b from-pink-500 fixed top-0 z-50 w-full mx-auto px-4 md:px-6 lg:px-8"
+                    aria-label="Global">
+                    <!-- Primary Navigation Menu -->
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="flex justify-between h-">
+                            <div class="flex">
+                                <!-- Logo -->
+                                <div class="shrink-0 flex items-center">
+                                    <Link href="/">
+                                    <ApplicationLogo
+                                        class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                                    </Link>
+                                </div>
 
-                <header class="flex flex-wrap md:justify-start md:flex-nowrap w-full text-sm py-1 md:py-0 ">
-                    <nav class="max-w- bg-gradient-to-b from-pink-500 fixed top-0 z-50 w-full mx-auto px-4 md:px-6 lg:px-8"
-                        aria-label="Global">
-                        <div class="relative md:flex md:items-center md:justify-between">
-                            <div class="flex items-center justify-between">
-                                <a class="flex-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                    href="#">
-                                    <img src="img/logo-white.png" alt="Logo" width="30%">
-                                </a>
+                                <!-- Navigation Links -->
+                                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                    <NavLink class="font-serif text-yellow-300 hover:text-pink-500"
+                                        href="#how-it-works" aria-current="page">
+                                        <span class="text-md font-extrabold">How It Works</span>
+                                    </NavLink>
+                                    <NavLink
+                                        class="font-extrabold font-serif text-md text-yellow-300 hover:text-pink-500 py-2 md:py-3 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                        href="#rates">
+                                        <span class="text-md font-extrabold">Rates</span>
+                                    </NavLink>
 
-                                <div class="md:hidden">
-                                    <button type="button"
-                                        class="hs-collapse-toggle size-9 flex justify-center items-center text-sm font-semibold rounded-lg border border-gray-200 text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                        data-hs-collapse="#navbar-collapse-with-animation"
-                                        aria-controls="navbar-collapse-with-animation" aria-label="Toggle navigation">
-                                        <svg class="hs-collapse-open:hidden flex-shrink-0 size-4"
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <line x1="3" x2="21" y1="6" y2="6" />
-                                            <line x1="3" x2="21" y1="12" y2="12" />
-                                            <line x1="3" x2="21" y1="18" y2="18" />
-                                        </svg>
-                                        <svg class="hs-collapse-open:block hidden flex-shrink-0 size-4"
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M18 6 6 18" />
-                                            <path d="m6 6 12 12" />
-                                        </svg>
-                                    </button>
+                                    <NavLink
+                                        class="font-extrabold font-serif text-lg text-yellow-400 hover:text-pink-500 py-2 md:py-3 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                        href="#about-us">
+                                        <span class="text-md font-extrabold">About</span>
+                                    </NavLink>
+
+                                    <NavLink
+                                        class="font-serif text-yellow-400 hover:text-pink-500 py-2 md:py-3 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                        href="#contact">
+                                        <span class="text-md font-extrabold ">Contact</span>
+                                    </NavLink>
+
                                 </div>
                             </div>
 
-                            <div id="navbar-collapse-with-animation"
-                                class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block">
-                                <div
-                                    class="overflow-hidden overflow-y-auto max-h-[75vh] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-slate-700 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500">
-                                    <div
-                                        class="flex flex-col gap-x-0 mt-3 divide-y divide-dashed divide-gray-200 md:flex-row md:items-center md:justify-end md:gap-x-7 md:mt-0 md:ps-7 md:divide-y-0 md:divide-solid dark:divide-gray-700">
-                                        <a class="font-extrabold font-serif text-lg text-yellow-300 hover:text-yellow-200 py-2 md:py-3 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                            href="#how-it-works" aria-current="page">
-                                            How It Works
-                                        </a>
+                            <div class="hidden sm:flex sm:items-center sm:ms-6">
+                                <!-- Settings Dropdown -->
+                                <div class="ms-3 relative">
+                                    <div class=" sm:top-0 sm:right-0 p-4 text-end">
+                                        <Link v-if="$page.props.auth.user" :href="route('dashboard')"
+                                            class="py-1.5 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-full border border-transparent bg-white text-cyan-500 hover:bg-cyan-500 hover:text-white disabled:opacity- disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-white">
+                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
+                                            stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                                            class="css-i6dzq1">
+                                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                                        </svg>Dashboard
+                                        </Link>
 
-                                        <a class="font-extrabold font-serif text-lg text-yellow-300 hover:text-yellow-200 py-2 md:py-3 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                            href="#rates">
-                                            Rates
-                                        </a>
-
-                                        <a class="font-extrabold font-serif text-lg text-yellow-400 hover:text-yellow-200 py-2 md:py-3 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                            href="#about-us">
-                                            About
-                                        </a>
-
-                                        <a class="font-extrabold font-serif text-lg text-yellow-400 hover:text-yellow-200 py-2 md:py-3 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                            href="#contact">
-                                            Contact
-                                        </a>
-                                        <!-- <a :href="route('dashboard')"
-                                            class="font-semibold text-yellow-400 hover:text-yellow-200 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                                            Dashboard</a> -->
-                                        <div class=" sm:top-0 sm:right-0 p-4 text-end">
-                                            <!-- <Link v-if="$page.props.auth.user" :href="route('dashboard')"
-                                                class="font-semibold text-yellow-400 hover:text-yellow-200 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                                            Dashboard</Link> -->
-                                            <Link v-if="$page.props.auth.user" :href="route('dashboard')"
-                                                class="py-1.5 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-full border border-transparent bg-white text-cyan-500 hover:bg-cyan-500 hover:text-white disabled:opacity- disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-white">
-                                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
+                                        <template v-else>
+                                            <Link :href="route('login')"
+                                            class="py-1.5 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-full border border-transparent bg-white text-cyan-500 hover:bg-cyan-500 hover:text-white disabled:opacity- disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-white">
+                                        Log in<svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor"
                                                 stroke-width="2" fill="none" stroke-linecap="round"
                                                 stroke-linejoin="round" class="css-i6dzq1">
-                                                <line x1="18" y1="20" x2="18" y2="10"></line>
-                                                <line x1="12" y1="20" x2="12" y2="4"></line>
-                                                <line x1="6" y1="20" x2="6" y2="14"></line>
-                                            </svg>Dashboard
-                                            </Link>
+                                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                                                <polyline points="10 17 15 12 10 7"></polyline>
+                                                <line x1="15" y1="12" x2="3" y2="12"></line>
+                                            </svg></Link>
 
-                                            <template v-else>
-                                                <Link :href="route('login')"
-                                                    class="font-semibold text-yellow-400 hover:text-yellow-200 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-full focus:outline-red-500">
-                                                Log in</Link>
-
-                                                <Link :href="route('register')"
-                                                    class="ms-4 font-semibold text-yellow-400 hover:text-yellow-200 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                                                Register</Link>
-                                            </template>
-                                        </div>
-
-
+                                            <Link :href="route('register')"
+                                                class="ms-4 font-semibold text-yellow-400 hover:text-pink-500 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
+                                            Register</Link>
+                                        </template>
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- Hamburger -->
+                            <div class="-me-2 flex items-center sm:hidden">
+                                <button @click="showingNavigationDropdown = !showingNavigationDropdown"
+                                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-900 focus:text-gray-700 dark:focus:text-gray-400 transition duration-150 ease-in-out">
+                                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                        <path :class="{
+                                        hidden: showingNavigationDropdown,
+                                        'inline-flex': !showingNavigationDropdown,
+                                    }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 6h16M4 12h16M4 18h16" />
+                                        <path :class="{
+                                        hidden: !showingNavigationDropdown,
+                                        'inline-flex': showingNavigationDropdown,
+                                    }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
-                    </nav>
-                </header>
+                    </div>
+
+                    <!-- Responsive Navigation Menu -->
+                    <div :class="{ block: showingNavigationDropdown, hidden: !showingNavigationDropdown }"
+                        class="sm:hidden bg-gray-100 rounded-lg mt-2">
+                        <div class="pt-2 pb-3 space-y-1">
+                            <ResponsiveNavLink class="font-bold text-2xl text-pink-600 hover:text-pink-300"
+                                href="#how-it-works" aria-current="page">
+                                How It Works
+                            </ResponsiveNavLink>
+                            <ResponsiveNavLink
+                                class="font-black text-lg text-pink-600 hover:text-pink-300 py-2 md:py-3 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                href="#rates">
+                                Rates
+                            </ResponsiveNavLink>
+
+                            <ResponsiveNavLink
+                                class="font-extrabold font-serif text-lg text-pink-600 hover:text-pink-300 py-2 md:py-3 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                href="#about-us">
+                                About
+                            </ResponsiveNavLink>
+
+                            <ResponsiveNavLink
+                                class="font-extrabold font-serif text-lg text-pink-600 hover:text-pink-300 py-2 md:py-3 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                href="#contact">
+                                Contact
+                            </ResponsiveNavLink>
+                        </div>
+
+                        <!-- Responsive Settings Options -->
+                        <div class="bg-cyan-400 py-0 rounded-b-lg border-t border-gray-200 dark:border-gray-600">
+                            <div class=" sm:top-0 sm:right-0 p-4 text-end">
+
+                                <Link v-if="$page.props.auth.user" :href="route('dashboard')"
+                                    class="py-1.5 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-full border border-transparent bg-white text-cyan-500 hover:bg-cyan-500 hover:text-white disabled:opacity- disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-white">
+                                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+                                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                                </svg>Dashboard
+                                </Link>
+
+                                <template v-else>
+                                    <Link :href="route('login')"
+                                        class="font-semibold text-white hover:text-yellow-100 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-full focus:outline-red-500">
+                                    Log in</Link>
+
+                                    <Link :href="route('register')"
+                                        class="ms-4 font-semibold text-pink-400 hover:text-pink-200 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
+                                    Register</Link>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
                 <!-- End Header -->
 
                 <!-- Hero -->
@@ -201,17 +235,14 @@ function handleImageError() {
                                     <!-- Buttons -->
                                     <div
                                         class="mt-8 gap-3 flex justify-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110">
-                                        <a class="inline-flex justify-center items-center gap-x-1 text-center bg-white hover:from-cyan-500 hover:to-cyan-600 border border-transparent text-cyan-500 text-sm font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white py-2 px-4 dark:focus:ring-offset-gray-800"
-                                            :href="route('login')">
+                                        <a class="inline-flex justify-center items-center gap-x-1 text-center bg-white hover:from-pink-400 hover:to-cyan-600 border border-transparent text-pink-600 text-sm font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white py-2 px-4 dark:focus:ring-offset-gray-800"
+                                            :href="route('register')">
 
                                             Get Started
-                                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
-                                                stroke-width="2" fill="none" stroke-linecap="round"
-                                                stroke-linejoin="round" class="css-i6dzq1">
-                                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
-                                                <polyline points="10 17 15 12 10 7"></polyline>
-                                                <line x1="15" y1="12" x2="3" y2="12"></line>
-                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+</svg>
+
                                         </a>
                                     </div>
                                     <!-- End Buttons -->
@@ -349,7 +380,8 @@ function handleImageError() {
                     <!-- Grid -->
                     <div class="relative z-10 lg:grid lg:grid-cols-12 lg:gap-4 lg:items-center">
                         <div class="mb-10 lg:mb-0 lg:col-span-6 lg:col-start-7 lg:order-2">
-                            <h3 class="max-w-2xl px-5  text-3xl font-black leading-tight text-center text-pink-600 sm:mt-0 sm:px-0 sm:text-6xl">
+                            <h3
+                                class="max-w-2xl px-5  text-3xl font-black leading-tight text-center text-pink-600 sm:mt-0 sm:px-0 sm:text-6xl">
                                 OUR RATES
                             </h3>
 
@@ -531,7 +563,8 @@ function handleImageError() {
                                 <!-- End Tab Content -->
 
                                 <!-- SVG Element -->
-                                <div class="hidden absolute top-0 right-20 end-0 translate-x-20 md:block lg:translate-x-20">
+                                <div
+                                    class="hidden absolute top-0 right-20 end-0 translate-x-20 md:block lg:translate-x-20">
                                     <svg class="w-16 h-auto text-yellow-400" width="121" height="135"
                                         viewBox="0 0 121 135" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5 16.4754C11.7688 27.4499 21.2452 57.3224 5 89.0164"
