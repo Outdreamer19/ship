@@ -66,7 +66,7 @@ const adminUser = "Admin"
                                     <template #content>
                                         <DropdownLink :href="route('profile.edit')"> Profile </DropdownLink>
                                         <DropdownLink :href="route('myaddress')"> My Address </DropdownLink>
-                                        <a :href="'admin'" v-if="$page.props.auth.user.email == 'ttcourier24@gmail.com' || $page.props.auth.user.email == 'brightsmile249@gmail.com'"
+                                        <a :href="'admin'" v-if="$page.props.auth.user.email == 'ttcourier24@gmail.com' || $page.props.auth.user.email == 'brightsmile249@gmail.com' || $page.props.auth.user.email == 'shane1obdurate@gmail.com'"
                                             class="block w-full px-4 py-2 text-start text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
                                             {{ adminUser }}
                                         </a>
