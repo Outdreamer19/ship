@@ -746,12 +746,12 @@ function handleImageError() {
             </section>
 
             <!-- Contact -->
-            <section id="contact" class="relative block bg-gray-900">
+            <section id="contact" class="relative block bg-slate-900">
                 <div class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
                     style="height: 80px; transform: translateZ(0px);">
                     <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg"
                         preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-                        <polygon class="text-gray-900 fill-current" points="2560 0 2560 100 0 100"></polygon>
+                        <polygon class="text-slate-900 fill-current" points="2560 0 2560 100 0 100"></polygon>
                     </svg>
                 </div>
                 <div class="container mx-auto px-4 lg:pt-20 lg:pb-14">
@@ -767,7 +767,7 @@ function handleImageError() {
                         <div class="lg:w-3/12 px-4 text-center">
                             <a href="https://www.instagram.com/brightsmile_courier/" target="_blank">
                                 <div
-                                    class="text-gray-900 p-1 w-14 h-14 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
+                                    class="text-slate-900 p-1 w-14 h-14 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
                                     <img src="img/instagram.png">
                                 </div>
                                 <h6 class="text-xl mt-5 font-semibold text-white">Instagram</h6>
@@ -777,7 +777,7 @@ function handleImageError() {
                         <div class="lg:w-3/12 px-4 text-center">
                             <a href="" target="_blank">
                                 <div
-                                    class="text-gray-900 p-1 w-14 h-14 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
+                                    class="text-slate-900 p-1 w-14 h-14 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
                                     <img src="img/facebook.png">
                                 </div>
                                 <h5 class="text-xl mt-5 font-semibold text-white">Facebook</h5>
@@ -787,7 +787,7 @@ function handleImageError() {
                         <div class="lg:w-3/12 px-4 text-center">
                             <a href="" target="_blank">
                                 <div
-                                    class="text-gray-900 p-1 w-14 h-14 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
+                                    class="text-slate-900 p-1 w-14 h-14 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
                                     <img src="img/tiktok.png">
                                 </div>
                                 <h5 class="text-xl mt-5 font-semibold text-white">TikTok</h5>
@@ -799,18 +799,18 @@ function handleImageError() {
             </section>
 
             <!-- Footer -->
-            <section class="relative block pt-2 lg:pt-0 bg-gray-900">
+            <section class="relative block pt-2 lg:pt-0 bg-slate-900">
                 <div class="container mx-auto px-4">
                     <div class="flex flex-wrap justify-center">
-                        <div class="w-full lg:w-8/12 px-4">
+                        <div class="w-full lg:max-w-6xl px-4">
 
-                            <div class="py-2 mr-2 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                                <div class="pl-4 lg:flex justify-center mx-auto">
+                            <div class="py-2  bg-gray-100 dark:bg-gray-800 rounded-lg">
+                                <div class="grid grid-cols-3 gap-4 lg:flex items-center justify-center mx-auto">
 
                                     <div class="flex items-center mr-4 text-white-600 dark:text-gray-400">
                                         <svg fill="none" stroke="currentColor" stroke-linecap="round"
                                             stroke-linejoin="round" stroke-width="2" viewBox="0 0 64 64"
-                                            class="w-5 h-5 text-pink-600">
+                                            class="w-7 h-7 text-pink-600">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4"
                                                 d="M30.287 2.029A29.769 29.769 0 0 0 5.223 45.266L2.064 60.6a1.158 1.158 0 0 0 1.4 1.361L18.492 58.4A29.76 29.76 0 1 0 30.287 2.029zm17.931 46.2" />
 
@@ -818,12 +818,37 @@ function handleImageError() {
                                                 d="M46.184 38.205l-5.765-1.655a2.149 2.149 0 0 0-2.126.561l-1.41 1.436a2.1 2.1 0 0 1-2.283.482c-2.727-1.1-8.463-6.2-9.927-8.754a2.1 2.1 0 0 1 .166-2.328l1.23-1.592a2.148 2.148 0 0 0 .265-2.183l-2.424-5.485a2.149 2.149 0 0 0-3.356-.769c-1.609 1.361-3.517 3.428-3.749 5.719-.409 4.039 1.323 9.13 7.872 15.242 7.566 7.063 13.626 8 17.571 7.04 2.238-.542 4.026-2.714 5.154-4.493a2.15 2.15 0 0 0-1.218-3.221z" />
 
                                         </svg>
-                                        <div class="ml-4 text-sm tracking-wide font-semibold w-60">
+                                        <div class="ml-4 text-md tracking-wide font-semibold w-60">
                                             +876 312-1067
                                         </div>
                                     </div>
 
-                                    <div class="flex items-center mt-4 text-gray-600 dark:text-gray-400">
+                                    <div class="flex items-center mr-4 text-gray-600 dark:text-gray-400">
+                                        <svg fill="none" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
+                                            class="w-8 h-8 text-pink-600">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                        <div class="mr-5 ml-4 text-md tracking-wide font-semibold w-60">
+                                            Montego Bay, Jamaica
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center mt-3 text-gray-600 dark:text-gray-400">
+                                        <svg fill="none" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
+                                            class="w-8 h-8 text-pink-600">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                        </svg>
+                                        <div class="ml-4 text-md tracking-wide font-semibold w-60">
+                                            brightsmile249@gmail.com
+                                        </div>
+                                    </div>
+
+                                    <!-- <div class="flex items-center mt-4 text-gray-600 dark:text-gray-400">
                                         <svg fill="none" stroke="currentColor" stroke-linecap="round"
                                             stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
                                             class="w-6 h-6 text-pink-600">
@@ -833,37 +858,9 @@ function handleImageError() {
                                         <div class="ml-4 text-sm tracking-wide font-semibold w-60">
                                             +876 319-4331
                                         </div>
-                                    </div>
+                                    </div> -->
 
 
-                                </div>
-                                <div class="pl-4 pt-4 lg:flex justify-center">
-
-
-                                    <div class="flex items-center mr-4 text-gray-600 dark:text-gray-400">
-                                        <svg fill="none" stroke="currentColor" stroke-linecap="round"
-                                            stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
-                                            class="w-6 h-6 text-pink-600">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                        </svg>
-                                        <div class="mr-5 ml-4 text-sm tracking-wide font-semibold w-60">
-                                            Montego Bay, St James Jamaica
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center mt-3 text-gray-600 dark:text-gray-400">
-                                        <svg fill="none" stroke="currentColor" stroke-linecap="round"
-                                            stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
-                                            class="w-6 h-6 text-pink-600">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                        </svg>
-                                        <div class="ml-4 text-sm tracking-wide font-semibold w-60">
-                                            brightsmile249@gmail.com
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
