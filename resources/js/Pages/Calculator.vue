@@ -8,7 +8,64 @@ import { ref, onMounted } from 'vue'
 // const calc = val + 10;
 
 //console.log(calc);
+
+
+
+const weightInput = ref(0);
+const costMessage = ref('');
+
+const calculateCost = () => {
+    let weight = parseInt(weightInput.value);
+    let cost = 0;
+
+    if (weight <= 0) {
+        costMessage.value = "Invalid weight. Please enter a weight greater than 0.";
+        return;
+    } else if (weight > 100) {
+        costMessage.value = "Please ask for a quote for weights over 100 lbs.";
+        return;
+    }
+
+    switch (true) {
+        case weight === 1:
+            cost += 500;
+            break;
+
+        case weight >= 2 && weight <= 15:
+            cost += 500 + (weight - 1) * 250;
+            break;
+
+        case weight >= 16 && weight <= 30:
+            cost = weight * 300;
+            break;
+
+        case weight >= 31 && weight <= 45:
+            cost = weight * 350;
+            break;
+
+        case weight >= 46 && weight <= 60:
+            cost = weight * 400;
+            break;
+
+        case weight >= 61 && weight <= 75:
+            cost = weight * 450;
+            break;
+
+        case weight >= 76 && weight <= 100:
+            cost += weight * 500;
+            break;
+
+        default:
+            costMessage.value = "Invalid weight range.";
+            return;
+    }
+
+    costMessage.value = `The cost for ${weightInput.value}lbs is: $${cost}.00`;
+};
 </script>
+
+
+
 
 <script>
 import { ref } from 'vue'
@@ -64,16 +121,17 @@ export default {
                                                 d="M12 3a4 4 0 0 1 4 4c0 .73-.19 1.41-.54 2H18c.95 0 1.75.67 1.95 1.56C21.96 18.57 22 18.78 22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2c0-.22.04-.43 2.05-8.44C4.25 9.67 5.05 9 6 9h2.54A3.89 3.89 0 0 1 8 7a4 4 0 0 1 4-4m0 2a2 2 0 0 0-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2m-6 6v8h5v-2H8v-6zm7 0v8h3c1.11 0 2-.89 2-2v-.5c0-.57-.25-1.12-.68-1.5c.43-.38.68-.93.68-1.5V13c0-1.11-.89-2-2-2zm2 2h1v1h-1zm0 3h1v1h-1z" />
                                         </svg>
                                     </span>
-                                    <input @keyup="calcWeight" type="number" name="myInput" ref="myInput"
+                                    <input v-model="weightInput" @keyup="calculateCost" type="number" name="myInput" ref="myInput"
                                         id="calc-weight"
                                         class="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         placeholder="Enter Weight in lbs.">
                                 </div>
                             </form>
                             <div class="flex mx-8 mt-6 px-4 py-6 mb-4 rounded-md bg-pink-50">
-                                <h2 class="mr-4">Calculated Rate : </h2>
-                                <h1 v-if="calculatedValue > 250">${{ calculatedValue }}</h1>
+                                <h2 class="mr-4 font-bold text-pink-600">Calculated Rate : </h2>
+                                <h1 class="text-xl" v-if="costMessage">{{ costMessage }}</h1>
                             </div>
+                           
                         </div>
                     </div>
                     <!-- second half -->
