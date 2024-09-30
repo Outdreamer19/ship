@@ -5,12 +5,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlertController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PackageController;
+use App\Http\Controllers\UserController;
 use Inertia\Inertia;
 
 // Frontend routes
 Route::get('/', function () {
     return Inertia::render('Welcome');
 });
+
+Route::get('users/export/', [UserController::class, 'export']);
 
 // Authenticated routes
 Route::middleware('auth')->group(function () {
