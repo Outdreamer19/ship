@@ -363,7 +363,7 @@ const packageStatusColor = (status) => {
                                     2215 SW 59th Ter
                                 </p>
                                 <p class="text-md sm:text-md lg:text-lg text-gray-800 dark:text-gray-200">
-                                    <span class="bg-pink-100 px-2 rounded-md"> BS {{
+                                    <span class="bg-pink-100 px-2 rounded-md"> BSC {{
                                         props.userStatistics.customer_number
                                         }}</span>
                                 </p>

@@ -73,7 +73,7 @@ export default {
                                     2215 SW 59th Ter
                                 </p>
                                     <p class="text-lg sm:text-lg lg:text-xl  text-gray-800 dark:text-gray-200">
-                                        <span class="bg-pink-100 px-2 rounded-md">BS {{
+                                        <span class="bg-pink-100 px-2 rounded-md">BSC {{
                                             $page.props.auth.user.customer_number
                                             }}</span>
                                     </p>
