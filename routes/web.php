@@ -12,6 +12,9 @@ use Inertia\Inertia;
 Route::get('/', function () {
     return Inertia::render('Welcome');
 });
+Route::get('/unsubscribe', function () {
+    return Inertia::render('Unsubscribe');
+})->name('unsubscribe');
 
 Route::get('users/export/', [UserController::class, 'export']);
 
