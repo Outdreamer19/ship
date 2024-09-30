@@ -158,15 +158,18 @@ export default {
                                         {{ $page.props.auth.user.name }}
                                     </p>
                                     <p class="text-md sm:text-md lg:text-lg text-gray-800 dark:text-gray-200">
-                                        1910 South State Road 7
+                                        2215 SW 59th Ter
                                     </p>
                                     <p class="text-md sm:text-md lg:text-lg text-gray-800 dark:text-gray-200">
-                                        <span class="bg-pink-50 px-2 rounded-md"> Suite #9 BS {{
+                                        <span class="bg-pink-100 px-2 rounded-md"> BS {{
                                         $page.props.auth.user.customer_number
                                             }}</span>
                                     </p>
                                     <p class="text-md sm:text-md lg:text-lg text-gray-800 dark:text-gray-200">
-                                        Miramar, FL 33023
+                                    West Park, Florida 33023
+                                    </p>
+                                    <p class="text-md sm:text-md lg:text-lg text-gray-800 dark:text-gray-200">
+                                        USA
                                     </p>
                                 </div>
                             </div>

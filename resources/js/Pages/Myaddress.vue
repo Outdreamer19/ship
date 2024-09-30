@@ -69,17 +69,20 @@ export default {
                                         class="text-lg sm:text-lg lg:text-xl font-semibold text-pink-600 dark:text-gray-200">
                                         {{ $page.props.auth.user.name }}
                                     </p>
+                                    <p class="text-md sm:text-md lg:text-lg text-gray-800 dark:text-gray-200">
+                                    2215 SW 59th Ter
+                                </p>
                                     <p class="text-lg sm:text-lg lg:text-xl  text-gray-800 dark:text-gray-200">
-                                        1910 South State Road 7
-                                    </p>
-                                    <p class="text-lg sm:text-lg lg:text-xl  text-gray-800 dark:text-gray-200">
-                                        <span class="bg-pink-50 px-2 rounded-md"> Suite #9 BS {{
+                                        <span class="bg-pink-100 px-2 rounded-md">BS {{
                                             $page.props.auth.user.customer_number
                                             }}</span>
                                     </p>
-                                    <p class="text-lg sm:text-lg lg:text-xl  text-gray-800 dark:text-gray-200">
-                                        Miramar, FL 33023
-                                    </p>
+                                    <p class="text-md sm:text-md lg:text-lg text-gray-800 dark:text-gray-200">
+                                    West Park, Florida 33023
+                                </p>
+                                <p class="text-md sm:text-md lg:text-lg text-gray-800 dark:text-gray-200">
+                                    USA
+                                </p>
                                 </div>
                                 <p class="text-cyan-400">Please make contact if you need any further assistance.</p>
                             </div>
