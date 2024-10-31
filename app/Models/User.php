@@ -58,7 +58,7 @@ class User extends Authenticatable implements FilamentUser
      
         // Array of emails to search within
         $emails = [
-            'shane1obdurate@gmail.com',
+            'shane@mail.com',
             'ttcourier24@gmail.com',
             'brightsmile249@gmail.com'
         ];

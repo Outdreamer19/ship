@@ -15,6 +15,12 @@ Route::get('/', function () {
 Route::get('/unsubscribe', function () {
     return Inertia::render('Unsubscribe');
 })->name('unsubscribe');
+Route::get('/product', function () {
+    return Inertia::render('Product');
+})->name('product');
+Route::get('/pricing', function () {
+    return Inertia::render('Pricing');
+})->name('pricing');
 
 Route::get('users/export/', [UserController::class, 'export']);
 
